@@ -5,5 +5,10 @@
   "author": "",
   "license": "MIT",
   "type": "C++",
-  "compiler_path": "clang++"
+  "compiler_path": "clang++",
+  "src_dir": "src",
+  "lib_dir": "lib",
+  "bin_dir": "bin",
+  "inc_dir": "include",
+  "ext": ".cpp"
 }

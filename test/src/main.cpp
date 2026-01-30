@@ -1,7 +1,6 @@
-#include <stdio.h>
+#include <print>
 
-int main() {
-#include <stdio.h>
-  printf("Hello\n");
-  return 0;
+int main(int argc, const char* argv[]) {
+   std::println("Hello, World!");
+   return EXIT_SUCCESS;
 }
