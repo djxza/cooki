@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../nlohmann/json.hpp"
-#include "utils.hpp"
 #include <algorithm>
 #include <cctype>
 #include <filesystem>
@@ -10,6 +8,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
+#include "../nlohmann/json.hpp"
+#include "gen.hpp"
+#include "utils.hpp"
 
 using json = nlohmann::ordered_json;
 
@@ -105,19 +107,21 @@ private:
 
   std::vector<std::string> dependencies;
 
-public:
-  inline Project() = default;
+  Filegen filegen;
 
-  inline Project(const std::string &_name, const Version &_version,
-                 const std::string &_description, const std::string &_author,
-                 const std::string &_license, ProjectType _type,
-                 const std::string &_git_repo,
+public:
+  inline Project(const std::string &arg0) : filegen(arg0) {}
+
+  inline Project(const std::string &arg0, const std::string &_name,
+                 const Version &_version, const std::string &_description,
+                 const std::string &_author, const std::string &_license,
+                 ProjectType _type, const std::string &_git_repo,
                  const std::string &_compiler_path,
                  bool _use_pragma_once = true,
                  const std::vector<std::string> &_libs = {})
       : name(_name), version(_version), description(_description),
         author(_author), license(_license), type(_type), git_repo(_git_repo),
-        compiler_path(_compiler_path), libs(_libs) {}
+        compiler_path(_compiler_path), libs(_libs), filegen(arg0) {}
 
   static inline std::string
   prompt_with_default(const std::string &prompt,
@@ -164,7 +168,7 @@ public:
   }
 
   inline Project _init(bool non_interactive = false) {
-    Project project;
+    Project project(filegen.get_arg0());
 
     if (!non_interactive) {
       std::cout << "\n\x1b[36mThis utility will walk you through creating a "
@@ -202,6 +206,14 @@ public:
         (project.type == ProjectType::C) ? "clang" : "clang++";
     project.compiler_path =
         prompt_with_default("compiler path", default_compiler, non_interactive);
+
+    // Prompt for directories
+    project.src_dir = prompt_with_default("source_dir", "src", non_interactive);
+    project.lib_dir =
+        prompt_with_default("library_dir", "lib", non_interactive);
+    project.bin_dir = prompt_with_default("binary_dir", "bin", non_interactive);
+    project.inc_dir =
+        prompt_with_default("include_dir", "include", non_interactive);
 
     // Ask about libraries
     if (!non_interactive) {
@@ -241,12 +253,15 @@ public:
       }
       summary["compiler_path"] = project.compiler_path;
 
+      // Add directory fields
+      summary["src_dir"] = project.src_dir;
+      summary["lib_dir"] = project.lib_dir;
+      summary["bin_dir"] = project.bin_dir;
+      summary["inc_dir"] = project.inc_dir;
+
       if (!project.libs.empty()) {
         summary["libs"] = project.libs;
       }
-
-      // moved to write
-      // std::cout << std::setw(2) << summary << "\n\n";
 
       std::string confirm = prompt_with_default(
           "\x1b[33mIs this OK?\x1b[0m [Y/n]", "", false, false);
@@ -269,7 +284,9 @@ public:
   inline void init(bool non_interactive = false) {
     *this = _init(non_interactive);
     write();
+
     make_dirs();
+
     make_files();
   }
 
@@ -317,6 +334,20 @@ public:
         compiler_path = (type == ProjectType::C) ? "clang" : "clang++";
       }
 
+      // Parse directory fields
+      if (read.contains("src_dir")) {
+        src_dir = read.value("src_dir", "src");
+      }
+      if (read.contains("lib_dir")) {
+        lib_dir = read.value("lib_dir", "lib");
+      }
+      if (read.contains("bin_dir")) {
+        bin_dir = read.value("bin_dir", "bin");
+      }
+      if (read.contains("inc_dir")) {
+        inc_dir = read.value("inc_dir", "include");
+      }
+
       // Parse libs
       if (read.contains("libs")) {
         libs = read["libs"].get<std::vector<std::string>>();
@@ -346,6 +377,15 @@ public:
     }
     data["compiler_path"] = compiler_path;
 
+    // Add directory fields
+    data["src_dir"] = src_dir;
+    data["lib_dir"] = lib_dir;
+    data["bin_dir"] = bin_dir;
+    data["inc_dir"] = inc_dir;
+
+    // Add file extension based on project type
+    data["ext"] = (type == ProjectType::C) ? ".c" : ".cpp";
+
     if (!libs.empty()) {
       data["libs"] = libs;
     }
@@ -367,13 +407,19 @@ public:
 
   inline void make_dirs() {
     fs::create_directories(src_dir);
+    fs::create_directories(lib_dir);
     fs::create_directories(bin_dir);
 
     if (src_dir != inc_dir)
       fs::create_directories(inc_dir);
   }
 
-  inline void make_files() {}
+  inline void make_files() {
+    std::string ext = (type == ProjectType::C) ? ".c" : ".cpp";
+    filegen.g_file("makefile");
+
+    filegen.g_file(src_dir + "/main" + ext);
+  }
 
   // Getters
   inline const std::string &get_name() const { return name; }
@@ -384,9 +430,16 @@ public:
   inline ProjectType get_type() const { return type; }
   inline const std::string &get_git_repo() const { return git_repo; }
   inline const std::string &get_compiler_path() const { return compiler_path; }
+  inline const std::string &get_src_dir() const { return src_dir; }
+  inline const std::string &get_lib_dir() const { return lib_dir; }
+  inline const std::string &get_bin_dir() const { return bin_dir; }
+  inline const std::string &get_inc_dir() const { return inc_dir; }
   inline const std::vector<std::string> &get_libs() const { return libs; }
   inline const std::vector<std::string> &get_dependencies() const {
     return dependencies;
+  }
+  inline std::string get_ext() const {
+    return (type == ProjectType::C) ? ".c" : ".cpp";
   }
 
   // Setters
@@ -400,7 +453,12 @@ public:
   inline void set_compiler_path(const std::string &value) {
     compiler_path = value;
   }
+  inline void set_src_dir(const std::string &value) { src_dir = value; }
+  inline void set_lib_dir(const std::string &value) { lib_dir = value; }
+  inline void set_bin_dir(const std::string &value) { bin_dir = value; }
+  inline void set_inc_dir(const std::string &value) { inc_dir = value; }
   inline void set_libs(const std::vector<std::string> &value) { libs = value; }
+
   inline void add_lib(const std::string &lib) { libs.push_back(lib); }
   inline void add_dependency(const std::string &dep) {
     dependencies.push_back(dep);

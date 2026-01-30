@@ -7,7 +7,7 @@
 
 int main(int ac, const char **argv) {
   Cli cli(ac, argv);
-  Project project;
+  Project project(argv[0]);
 
   cli.add_flag({"-h", "--help"}, "Show help");
   cli.add_flag({"-y", "--yes"}, "Use defaults when initing project");
