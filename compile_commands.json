@@ -1,0 +1,19 @@
+[
+  {
+    "file": "src/main.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++2b",
+      "-Wall",
+      "-Wpedantic",
+      "-Wextra",
+      "-Wno-gnu-zero-variadic-macro-arguments",
+      "-c",
+      "src/main.cpp",
+      "-o",
+      "src/main.o"
+    ],
+    "directory": "/home/djozoleta/dev/cooki",
+    "output": "src/main.o"
+  }
+]
