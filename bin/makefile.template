@@ -37,7 +37,7 @@ else
     else
         CC := $(COMPILER_PATH)
     endif
-    STD := c++20
+    STD := c++26
     SRC_FILES := $(shell find $(SRC_DIR) -name "*.cpp" -o -name "*.cc" -o -name "*.cxx" 2>/dev/null)
 endif
 
@@ -211,3 +211,4 @@ endif
 # ============================================================================
 print-%:
 	@echo '$*=$($*)'
+

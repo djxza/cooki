@@ -1,9 +1,0 @@
-{
-  "name": "cooki",
-  "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "license": "MIT",
-  "type": "C++",
-  "compiler_path": "clang++"
-}
