@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cctype>
+#include <complex>
 #include <filesystem>
 #include <fstream>
 #include <iomanip>
@@ -84,16 +85,18 @@ struct Version {
   }
 };
 
-enum class ProjectType { C, CPP };
+enum class ProjectLang { C, CPP };
+enum class ProjectType { EXE, LIB };
 
 class Project {
 private:
   std::string name;
+  ProjectType type;
   Version version;
   std::string description;
   std::string author;
   std::string license;
-  ProjectType type;
+  ProjectLang lang;
   std::string git_repo;
   std::string compiler_path;
 
@@ -120,11 +123,11 @@ public:
   inline Project(const std::string &arg0, const std::string &_name,
                  const Version &_version, const std::string &_description,
                  const std::string &_author, const std::string &_license,
-                 ProjectType _type, const std::string &_git_repo,
+                 ProjectLang _lang, const std::string &_git_repo,
                  const std::string &_compiler_path,
                  const std::vector<std::string> &_libs = {})
       : name(_name), version(_version), description(_description),
-        author(_author), license(_license), type(_type), git_repo(_git_repo),
+        author(_author), license(_license), lang(_lang), git_repo(_git_repo),
         compiler_path(_compiler_path), libs(_libs), filegen(arg0) {}
 
   static inline std::string
@@ -190,6 +193,11 @@ public:
     // NPM-like prompts
     project.name =
         prompt_with_default("project name", default_name, non_interactive);
+    std::string type_str =
+        prompt_with_default("project type", "Executable", non_interactive);
+    project.type = (type_str == "Executable" || type_str == "exe")
+                       ? ProjectType::EXE
+                       : ProjectType::LIB;
     project.version = Version::from_string(
         prompt_with_default("version", "1.0.0", non_interactive));
     project.description =
@@ -197,16 +205,16 @@ public:
     project.author = prompt_with_default("author", "", non_interactive);
     project.license = prompt_with_default("license", "MIT", non_interactive);
 
-    std::string type_str =
-        prompt_with_default("project type (C/C++)", "C++", non_interactive);
-    project.type = (type_str == "C" || type_str == "c") ? ProjectType::C
-                                                        : ProjectType::CPP;
+    std::string lang_str =
+        prompt_with_default("project lang (C/C++)", "C++", non_interactive);
+    project.lang = (lang_str == "C" || lang_str == "c") ? ProjectLang::C
+                                                        : ProjectLang::CPP;
 
     project.git_repo =
         prompt_with_default("git repository", "", non_interactive);
 
     std::string default_compiler =
-        (project.type == ProjectType::C) ? "clang" : "clang++";
+        (project.lang == ProjectLang::C) ? "clang" : "clang++";
     project.compiler_path =
         prompt_with_default("compiler path", default_compiler, non_interactive);
 
@@ -245,11 +253,13 @@ public:
 
       json summary;
       summary["name"] = project.name;
+      summary["type"] =
+          (project.type == ProjectType::EXE) ? "Executable" : "Library";
       summary["version"] = project.version.to_string();
       summary["description"] = project.description;
       summary["author"] = project.author;
       summary["license"] = project.license;
-      summary["type"] = (project.type == ProjectType::C) ? "C" : "C++";
+      summary["lang"] = (project.lang == ProjectLang::C) ? "C" : "C++";
       if (!project.git_repo.empty()) {
         summary["git_repo"] = project.git_repo;
       }
@@ -290,8 +300,11 @@ public:
 
     write();
 
-    make_dirs();
-    make_files();
+    if (type == ProjectType::EXE) {
+      make_dirs();
+      make_files();
+    } else {
+    }
   }
 
   inline void parse(const std::string &proj_file_path) {
@@ -306,6 +319,17 @@ public:
               "Invalid project file %s, field name not found;",
               proj_file_path.c_str());
       name = read.value("name", "");
+
+      // Add this block to parse the type field
+      if (read.contains("type")) {
+        std::string type_str = read.value("type", "Executable");
+        std::string lower_type = type_str;
+        std::transform(lower_type.begin(), lower_type.end(), lower_type.begin(),
+                       ::tolower);
+        type = (lower_type == "executable" || lower_type == "exe")
+                   ? ProjectType::EXE
+                   : ProjectType::LIB;
+      }
 
       if (read.contains("version")) {
         version = Version::from_string(read.value("version", "1.0.0"));
@@ -323,9 +347,9 @@ public:
         license = read.value("license", "MIT");
       }
 
-      if (read.contains("type")) {
-        std::string type_str = read.value("type", "C++");
-        type = (type_str == "C") ? ProjectType::C : ProjectType::CPP;
+      if (read.contains("lang")) {
+        std::string lang_str = read.value("lang", "C++");
+        lang = (lang_str == "C") ? ProjectLang::C : ProjectLang::CPP;
       }
 
       if (read.contains("git_repo")) {
@@ -335,7 +359,7 @@ public:
       if (read.contains("compiler_path")) {
         compiler_path = read.value("compiler_path", "");
       } else {
-        compiler_path = (type == ProjectType::C) ? "clang" : "clang++";
+        compiler_path = (lang == ProjectLang::C) ? "clang" : "clang++";
       }
 
       // Parse directory fields
@@ -371,11 +395,13 @@ public:
 
     // Write fields in npm-like order
     data["name"] = name;
+    data["type"] =
+        (type == ProjectType::EXE) ? "Executable" : "Library"; // Add this line
     data["version"] = version.to_string();
     data["description"] = description;
     data["author"] = author;
     data["license"] = license;
-    data["type"] = (type == ProjectType::C) ? "C" : "C++";
+    data["lang"] = (lang == ProjectLang::C) ? "C" : "C++";
     if (!git_repo.empty()) {
       data["git_repo"] = git_repo;
     }
@@ -387,8 +413,8 @@ public:
     data["bin_dir"] = bin_dir;
     data["inc_dir"] = inc_dir;
 
-    // Add file extension based on project type
-    data["ext"] = (type == ProjectType::C) ? ".c" : ".cpp";
+    // Add file extension based on project lang
+    data["ext"] = (lang == ProjectLang::C) ? ".c" : ".cpp";
 
     if (!libs.empty()) {
       data["libs"] = libs;
@@ -409,7 +435,7 @@ public:
               << std::endl;
   }
 
-  inline void make_dirs() {
+  inline void make_exe_dirs() {
     fs::create_directories(src_dir);
     fs::create_directories(lib_dir);
     fs::create_directories(bin_dir);
@@ -418,8 +444,13 @@ public:
       fs::create_directories(inc_dir);
   }
 
-  inline void make_files() {
-    std::string ext = (type == ProjectType::C) ? ".c" : ".cpp";
+  inline void make_dirs() {
+    if (type == ProjectType::EXE)
+      make_exe_files() else make_lib_files();
+  }
+
+  inline void make_exe_files() {
+    std::string ext = (lang == ProjectLang::C) ? ".c" : ".cpp";
     filegen.g_file("makefile");
 
     filegen.g_file(src_dir + "/main" + ext);
@@ -431,7 +462,7 @@ public:
   inline const std::string &get_description() const { return description; }
   inline const std::string &get_author() const { return author; }
   inline const std::string &get_license() const { return license; }
-  inline ProjectType get_type() const { return type; }
+  inline ProjectLang get_lang() const { return lang; }
   inline const std::string &get_git_repo() const { return git_repo; }
   inline const std::string &get_compiler_path() const { return compiler_path; }
   inline const std::string &get_src_dir() const { return src_dir; }
@@ -443,7 +474,7 @@ public:
     return dependencies;
   }
   inline std::string get_ext() const {
-    return (type == ProjectType::C) ? ".c" : ".cpp";
+    return (lang == ProjectLang::C) ? ".c" : ".cpp";
   }
 
   // Setters
@@ -452,7 +483,7 @@ public:
   inline void set_description(const std::string &value) { description = value; }
   inline void set_author(const std::string &value) { author = value; }
   inline void set_license(const std::string &value) { license = value; }
-  inline void set_type(ProjectType value) { type = value; }
+  inline void set_lang(ProjectLang value) { lang = value; }
   inline void set_git_repo(const std::string &value) { git_repo = value; }
   inline void set_compiler_path(const std::string &value) {
     compiler_path = value;
