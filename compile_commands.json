@@ -8,6 +8,7 @@
       "-Wpedantic",
       "-Wextra",
       "-Wno-gnu-zero-variadic-macro-arguments",
+      "-Isrc",
       "-c",
       "src/main.cpp",
       "-o",
@@ -15,5 +16,77 @@
     ],
     "directory": "/home/djozoleta/dev/cooki",
     "output": "src/main.o"
+  },
+  {
+    "file": "src/filegen/lib.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++2b",
+      "-Wall",
+      "-Wpedantic",
+      "-Wextra",
+      "-Wno-gnu-zero-variadic-macro-arguments",
+      "-Isrc",
+      "-c",
+      "src/filegen/lib.cpp",
+      "-o",
+      "src/filegen/lib.o"
+    ],
+    "directory": "/home/djozoleta/dev/cooki",
+    "output": "src/filegen/lib.o"
+  },
+  {
+    "file": "src/filegen/exe.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++2b",
+      "-Wall",
+      "-Wpedantic",
+      "-Wextra",
+      "-Wno-gnu-zero-variadic-macro-arguments",
+      "-Isrc",
+      "-c",
+      "src/filegen/exe.cpp",
+      "-o",
+      "src/filegen/exe.o"
+    ],
+    "directory": "/home/djozoleta/dev/cooki",
+    "output": "src/filegen/exe.o"
+  },
+  {
+    "file": "src/filegen/base.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++2b",
+      "-Wall",
+      "-Wpedantic",
+      "-Wextra",
+      "-Wno-gnu-zero-variadic-macro-arguments",
+      "-Isrc",
+      "-c",
+      "src/filegen/base.cpp",
+      "-o",
+      "src/filegen/base.o"
+    ],
+    "directory": "/home/djozoleta/dev/cooki",
+    "output": "src/filegen/base.o"
+  },
+  {
+    "file": "src/project.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++2b",
+      "-Wall",
+      "-Wpedantic",
+      "-Wextra",
+      "-Wno-gnu-zero-variadic-macro-arguments",
+      "-Isrc",
+      "-c",
+      "src/project.cpp",
+      "-o",
+      "src/project.o"
+    ],
+    "directory": "/home/djozoleta/dev/cooki",
+    "output": "src/project.o"
   }
 ]

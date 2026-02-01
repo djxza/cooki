@@ -2,6 +2,9 @@ CC = clang++
 
 CCFLAGS  = -std=gnu++2b -Wall -Wpedantic -Wextra
 CCFLAGS += -Wno-gnu-zero-variadic-macro-arguments
+CCFLAGS += $(INCFLAGS)
+
+INCFLAGS = -Isrc
 
 SRC = $(shell find src -name "*.cpp")
 OBJ = $(SRC:.cpp=.o)

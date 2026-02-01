@@ -1,4 +1,4 @@
-#include "base_filegen.hpp"
+#include "base.hpp"
 
 BaseFilegen::BaseFilegen(const std::string &arg0,
                          const std::string &template_subdir)

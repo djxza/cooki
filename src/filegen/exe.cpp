@@ -1,4 +1,4 @@
-#include "exe_filegen.hpp"
+#include "exe.hpp"
 
 ExeFilegen::ExeFilegen(const std::string &arg0) : BaseFilegen(arg0, "exe") {}
 

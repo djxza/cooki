@@ -1,4 +1,4 @@
-#include "lib_filegen.hpp"
+#include "lib.hpp"
 #include "utils.hpp"
 
 LibFilegen::LibFilegen(const std::string &arg0) : BaseFilegen(arg0, "lib") {}

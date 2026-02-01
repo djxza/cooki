@@ -11,8 +11,8 @@
 #include <vector>
 
 #include "../nlohmann/json.hpp"
-#include "exe_filegen.hpp"
-#include "lib_filegen.hpp"
+#include "filegen/exe.hpp"
+#include "filegen/lib.hpp"
 #include "utils.hpp"
 
 using json = nlohmann::ordered_json;

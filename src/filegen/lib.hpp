@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base_filegen.hpp"
+#include "base.hpp"
 #include <sstream>
 
 class LibFilegen : public BaseFilegen {

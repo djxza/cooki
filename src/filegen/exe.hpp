@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base_filegen.hpp"
+#include "base.hpp"
 
 class ExeFilegen : public BaseFilegen {
 public:
