@@ -1,0 +1,17 @@
+#include "PROJECT_NAME/PROJECT_NAME.h"
+#include <stdio.h>
+
+int main() {
+    printf("Testing PROJECT_NAME library\n");
+    
+    if (PROJECT_NAME_init() != 0) {
+        fprintf(stderr, "Failed to initialize library\n");
+        return 1;
+    }
+    
+    int result = PROJECT_NAME_do_something(21);
+    printf("Result: %d\n", result);
+    
+    PROJECT_NAME_cleanup();
+    return 0;
+}

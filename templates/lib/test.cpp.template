@@ -1,0 +1,17 @@
+#include "PROJECT_NAME/PROJECT_NAME.hpp"
+#include <iostream>
+
+int main() {
+    std::cout << "Testing PROJECT_NAME library" << std::endl;
+    
+    if (PROJECT_NAME_init() != 0) {
+        std::cerr << "Failed to initialize library" << std::endl;
+        return 1;
+    }
+    
+    int result = PROJECT_NAME_do_something(21);
+    std::cout << "Result: " << result << std::endl;
+    
+    PROJECT_NAME_cleanup();
+    return 0;
+}

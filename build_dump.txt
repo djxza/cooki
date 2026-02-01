@@ -1,0 +1,1697 @@
+Project dump:
+Generating build_dump.txt ...
+
+===== TREE STRUCTURE =====
+
+.
+├── bin
+│   └── cooki
+├── build_dump.txt
+├── .cache
+│   └── clangd
+│       └── index
+│           ├── cli.hpp.3E2BC4D067786766.idx
+│           ├── filegen.hpp.3D4DFAB2FA5BA75E.idx
+│           ├── gen.hpp.7A3A67E422B3B17E.idx
+│           ├── json.hpp.D8381B553195D168.idx
+│           ├── main.cpp.779E1EB2F602034C.idx
+│           ├── project.hpp.E9CD290678164D06.idx
+│           └── utils.hpp.39E695813F3FEDB9.idx
+├── compile_commands.json
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── HEAD
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── trunc
+│   │       └── remotes
+│   │           └── origin
+│   │               └── trunc
+│   ├── objects
+│   │   ├── 03
+│   │   │   └── 05250f9037d30f1908eca7c1af259a7c2552da
+│   │   ├── 0e
+│   │   │   └── 8b1584a4acbd2621bbf4e1a611e6dd40720a92
+│   │   ├── 12
+│   │   │   └── 3321501c560e87be091a86de069d93d2c36d16
+│   │   ├── 13
+│   │   │   └── 0497da6d6d4417a59490daf4ff49cc714b564f
+│   │   ├── 14
+│   │   │   ├── 87a7d5f67895fbaa407a9cc8e4a3f53875a7bd
+│   │   │   ├── d4056dfa4b560ba932160085a7e9d1c09d13af
+│   │   │   └── f34d8d66d890186f4fa0f14c5914fef3b8c968
+│   │   ├── 1a
+│   │   │   └── 9160880885999d42a0b738fd9c55fea9e1a46e
+│   │   ├── 1d
+│   │   │   ├── 0222eff2aa1d0c47bba3da168bb2a9dd723cd5
+│   │   │   ├── 1422248751d3d5e2327c721c023635bc7789f5
+│   │   │   ├── 1fc540585f4032b4d735e586b021d89465dc22
+│   │   │   └── 4e4fac3ee278856fc2836e9df770d46e48285a
+│   │   ├── 1e
+│   │   │   └── d0c5460ccd2b7385f6336dea2f44eedcda8b8d
+│   │   ├── 26
+│   │   │   ├── 0e957b6a52d896c3688ef8b696d96b10ea54df
+│   │   │   └── 4ba09c0ce33bd8f40396f1d8b305ba55e10cfa
+│   │   ├── 27
+│   │   │   └── a0bba46dde172f356d3b2412b1832584265c7f
+│   │   ├── 28
+│   │   │   └── b36199099ce930c65ab37af0e900bba6c1aa21
+│   │   ├── 2b
+│   │   │   └── e152197d11ed00e187d0517245a8bddeec1c67
+│   │   ├── 2f
+│   │   │   └── ac61b8876cfc3ae3bcad7eba6e9b61211af3f2
+│   │   ├── 30
+│   │   │   └── bc516a99447d87e98b2dbaa86f96a2579e9bcc
+│   │   ├── 35
+│   │   │   └── 262b9e75500901a8059f71b51a013d3163df90
+│   │   ├── 37
+│   │   │   └── da69e371297282d8ae6f21b6c24e679015d9e5
+│   │   ├── 38
+│   │   │   ├── cf082b299226613234efd8a4b69d6bcf066241
+│   │   │   └── ec9f049ef1bb12f58c2a03a07715610fdb14e8
+│   │   ├── 3c
+│   │   │   └── 9dc5de48f58174b2122ba3f9fd7800b60bb139
+│   │   ├── 3d
+│   │   │   └── 9457f09e7b138f9faf3b92cdffc7adbc8cc420
+│   │   ├── 3f
+│   │   │   └── 529fd93e6d87eea7001f738067cf8d6a3a46e3
+│   │   ├── 44
+│   │   │   └── 49b7253ebe0f2dfaaac8de7e46c6b4249303b2
+│   │   ├── 45
+│   │   │   └── a48105b3304b5dc93dca32941133ec1cf36956
+│   │   ├── 47
+│   │   │   └── 97a14d2389baf85cc8aaa2bfa39193e7fb5d22
+│   │   ├── 4b
+│   │   │   ├── 825dc642cb6eb9a060e54bf8d69288fbee4904
+│   │   │   └── bd04e5711c79cad6033b3a400bebb6d3d631bd
+│   │   ├── 4e
+│   │   │   └── 30375026fd473b28f4257a34a8a8f79ad67f97
+│   │   ├── 4f
+│   │   │   └── 229e07e098164494c7b645efac7431a65fa1b0
+│   │   ├── 53
+│   │   │   ├── 0389a6f4419ea470a2087297776cbff3bcf793
+│   │   │   └── 43a57d220b202f0ad953cc898d9a0746b49120
+│   │   ├── 56
+│   │   │   ├── bffba1f6cfd2c08e7044fdb1d8b64c517e7d08
+│   │   │   └── fadc55bad8c6ce14e6e9a6308d9001b8bf798e
+│   │   ├── 59
+│   │   │   └── 552e0228881beef65934a966b03b0bf6dee364
+│   │   ├── 5f
+│   │   │   └── 509d98e38eb37024f937b3cc62cca8641107b6
+│   │   ├── 64
+│   │   │   └── 7a19e5129a234b4fe50fb91ced86864c181a36
+│   │   ├── 66
+│   │   │   └── 75a70b26287ab196512d0898ed3840cb14f7fe
+│   │   ├── 67
+│   │   │   └── c12ab660e3f3a870c55b072ab88622a764f297
+│   │   ├── 6a
+│   │   │   └── be79937f5cd98c8a32ae7e9cc78a4e4fe11142
+│   │   ├── 73
+│   │   │   └── 23ac9d070b72c3584defbca7b53c4f40c37b50
+│   │   ├── 74
+│   │   │   └── 5c270d179adf69956350648e17e325b6b65061
+│   │   ├── 76
+│   │   │   └── ab54ff0f69981457c03455d50954bf0782c30c
+│   │   ├── 79
+│   │   │   └── 3bb9008ae26e97235427f0e57bd0bf7cc2f494
+│   │   ├── 7b
+│   │   │   ├── 5c21a63ca58c0bcb3ee4b3ec2720f92537463e
+│   │   │   └── f88f32d9cee34c44d2c0ce4a406772167440c3
+│   │   ├── 7c
+│   │   │   └── 7e67bb5cdc69e0414a8fa3aa70716d4a2cc9fe
+│   │   ├── 7d
+│   │   │   └── 99a865d7c7f00888051df0c0e691cb8df5ef88
+│   │   ├── 7e
+│   │   │   └── d2ae16039785ebcad0c7ce679d2c7ec304e82a
+│   │   ├── 7f
+│   │   │   └── 4d485c75bc5a48d9e1f4d4ad98bb6e689f901e
+│   │   ├── 87
+│   │   │   └── 5fc01ee904e8dab7ff24e2d1c584aae38bbae0
+│   │   ├── 8e
+│   │   │   └── 533d236a700b9744bce803a65f9e595102083c
+│   │   ├── 8f
+│   │   │   ├── 866a80ef3ee53046fc8900ab7cc52055e8cd44
+│   │   │   └── b08ce7665b4ecff77f3caa4cd3304802436457
+│   │   ├── 90
+│   │   │   └── 5d8d8ad77dba97f7a08083e6987e7310fbbf01
+│   │   ├── 92
+│   │   │   └── bbd5f6fdc5206bca6bda5da3b115353f4be877
+│   │   ├── 99
+│   │   │   └── 588ac8471af4c267ee8852121364c8dd651cdc
+│   │   ├── 9b
+│   │   │   └── 92f75ecc001ce8d9155a4fbb6aae4b4f35e081
+│   │   ├── 9f
+│   │   │   └── 5054f30e3f922c21303a97f18f3f31e22b1170
+│   │   ├── a0
+│   │   │   └── c5bc93f28ac7b31c2cb2758c12d116e5d7ea58
+│   │   ├── a1
+│   │   │   └── 4e7cd4e2113fef7679e034347ecec5e8a725d0
+│   │   ├── a5
+│   │   │   └── f7bacc76f3d47da73130e55af93fac4077d88f
+│   │   ├── a6
+│   │   │   ├── 95c5f0445990a4dbdd8deebdfa6c8399de566e
+│   │   │   └── dc1644938656514dadb6c2da967aaf4e3e54c1
+│   │   ├── a9
+│   │   │   └── 2829408654d987be690fbc00424a92f65e0a01
+│   │   ├── ab
+│   │   │   └── 711c20311482e29b130d606afa84e460a4fcc8
+│   │   ├── ac
+│   │   │   └── 48557f22043f7d8a76590b852f4473d5006be1
+│   │   ├── ae
+│   │   │   └── f909a4a0d86d6e46e854f23366f77b26d60e54
+│   │   ├── b7
+│   │   │   └── 978712e9cc4f888180ef1a3f8ad373b76ae49d
+│   │   ├── ba
+│   │   │   └── 7d0889a3e9c1b99e3f9d93fe4e789427ce0dff
+│   │   ├── bb
+│   │   │   └── 416c4dbbca6c4667b79c1297e2a44ef72ab7a0
+│   │   ├── bc
+│   │   │   ├── 3dea5f5a2d918d20008c7bf70c7b45ba038c40
+│   │   │   └── 566de44b7609de32369c759ce51f4bdd38f3de
+│   │   ├── bd
+│   │   │   └── 189390279817f08f819ebaa84ce7d9fad1c685
+│   │   ├── bf
+│   │   │   └── 12d411b649a7968f36289607ca0f0217283a42
+│   │   ├── c0
+│   │   │   └── 553955b0cc60a3b27b2e33268e3991ae5b7699
+│   │   ├── c1
+│   │   │   ├── 45aaaab6d8172ddfb7316ca48613725920a791
+│   │   │   └── aa1214aed06c0e5b4bf5eb8dc13664b3985ff3
+│   │   ├── c3
+│   │   │   └── bca8b4af2a1925bd3a84884c53a0d3418ddf3c
+│   │   ├── c6
+│   │   │   └── 80c3f85f98e485e3b73e90c2f324d8b60816f9
+│   │   ├── c7
+│   │   │   └── 087c7932dbe7f9217a83583b4a51accecce7b1
+│   │   ├── c8
+│   │   │   └── d38edfada8b327c7d0f812770af9a57fff8d23
+│   │   ├── ca
+│   │   │   └── cda13b3f2ee37ffa700d43a899b376699fdb74
+│   │   ├── cb
+│   │   │   └── 76a9981173581ec5cc684c23052ffebc2cffd5
+│   │   ├── cc
+│   │   │   └── 40f666cf4787aa3d2360a3a1f3801a3d69ba1a
+│   │   ├── cd
+│   │   │   └── e260e1be8a4d71fdf86197535a09908e0fc0ae
+│   │   ├── cf
+│   │   │   └── f3502b47bf58f3214fb6d167f02974d60c6520
+│   │   ├── d3
+│   │   │   └── 2bf094777d15489d334b3310f8e8e579b0f894
+│   │   ├── d6
+│   │   │   └── d995c86489ef5bbc6bb500a05eff831a9ae2ee
+│   │   ├── d7
+│   │   │   └── 6553e59501689ee7d02b2c1fcf1ca7ab354591
+│   │   ├── d9
+│   │   │   ├── 7a2344dc4b9ed911dbde472ea5361171e5186d
+│   │   │   └── 935f1ce92d05ff819f711c93e522a913e5e407
+│   │   ├── dd
+│   │   │   ├── 4663cc3ddeade56198f1d5d463a3544f767903
+│   │   │   └── aaab1e5541a6fd191165f58c68e79360ee069d
+│   │   ├── de
+│   │   │   └── 7548e6eaa43c00aef6388598094ae6a72895be
+│   │   ├── e1
+│   │   │   └── 1267d60797b543c10ea78f983ba1e631ed784c
+│   │   ├── e2
+│   │   │   └── e7d0d18bc6a2abc2ef7eaacc71ed0fd8405805
+│   │   ├── e3
+│   │   │   └── fac1435eabe7320649568e8594c415d935a813
+│   │   ├── e5
+│   │   │   └── aee352dcf66321b1ade48ea3634d3d0b99b7ae
+│   │   ├── e8
+│   │   │   ├── 6781e2f80851002a6e3364ca1abca79b6b5f7b
+│   │   │   └── e04a9653664c35f060e794d67da1e60951a930
+│   │   ├── e9
+│   │   │   └── c04e1e593a9c72a0b975bd271255d94d156234
+│   │   ├── eb
+│   │   │   └── 01df60c8eac7fa4427804eae1aba58b62de7dc
+│   │   ├── ec
+│   │   │   └── 18fbd58e4305f355282ca3d328267814c3f989
+│   │   ├── ef
+│   │   │   └── edb493dec696e44a238170a3728df65d4b9787
+│   │   ├── f0
+│   │   │   └── 0a15a37c54ce8fc481cdc19bfc6cc9a229c596
+│   │   ├── f1
+│   │   │   └── bc56ab9d1f3089b30b815e27f6a552bded1692
+│   │   ├── f2
+│   │   │   └── e53bc0019e27d0d0c5fdbc68f25779c82fd13a
+│   │   ├── ff
+│   │   │   └── 51f38b836a7fb6652bd07e66dabdd51f3a2cc0
+│   │   ├── info
+│   │   └── pack
+│   └── refs
+│       ├── heads
+│       │   └── trunc
+│       ├── remotes
+│       │   └── origin
+│       │       └── trunc
+│       └── tags
+├── .gitignore
+├── lib
+├── makefile
+├── nlohmann
+│   └── json.hpp
+├── project.json
+├── README.MD
+├── src
+│   ├── cli.hpp
+│   ├── filegen.hpp
+│   ├── main.cpp
+│   ├── main.o
+│   ├── pacman.hpp
+│   ├── project.hpp
+│   └── utils.hpp
+├── templates
+│   ├── main.cpp.template
+│   ├── main.c.template
+│   └── makefile.template
+└── test
+    ├── \
+    ├── bin
+    │   ├── obj
+    │   │   ├── main.d
+    │   │   └── main.o
+    │   ├── test
+    │   └── test_project
+    ├── .git
+    │   ├── config
+    │   ├── description
+    │   ├── HEAD
+    │   ├── hooks
+    │   │   ├── applypatch-msg.sample
+    │   │   ├── commit-msg.sample
+    │   │   ├── fsmonitor-watchman.sample
+    │   │   ├── post-update.sample
+    │   │   ├── pre-applypatch.sample
+    │   │   ├── pre-commit.sample
+    │   │   ├── pre-merge-commit.sample
+    │   │   ├── prepare-commit-msg.sample
+    │   │   ├── pre-push.sample
+    │   │   ├── pre-rebase.sample
+    │   │   ├── pre-receive.sample
+    │   │   ├── push-to-checkout.sample
+    │   │   ├── sendemail-validate.sample
+    │   │   └── update.sample
+    │   ├── info
+    │   │   └── exclude
+    │   ├── objects
+    │   │   ├── info
+    │   │   └── pack
+    │   └── refs
+    │       ├── heads
+    │       └── tags
+    ├── include
+    ├── lib
+    ├── makefile
+    ├── project.json
+    └── src
+        ├── main.cpp
+        └── main.o
+
+136 directories, 189 files
+
+===== ALL SOURCE FILES =====
+
+--- src/main.cpp ---
+#include <cstdlib>
+#include <iostream>
+#include <print>
+#include <set>
+
+#include "cli.hpp"
+#include "project.hpp"
+
+int main(int ac, const char **argv) {
+  Cli cli(ac, argv);
+
+  Project project(argv[0]);
+
+  cli.add_flag({"-h", "--help"}, "Show help");
+  cli.add_flag({"-y", "--yes"}, "Use defaults when initing project");
+  cli.add_flag({"-g", "--global"}, "Install globally");
+
+  cli.add_command({"install", "i"}, "Installs a library");
+  cli.add_command({"init"}, "Initializes the project");
+
+  cli.args_break_down();
+
+  // Check for duplicate flags FIRST
+  cli.check_duplicate_flags();
+
+  if (cli.is_flag_set("-h") || cli.is_flag_set("--help")) {
+    cli.print_help();
+    return 0;
+  }
+
+  // Check which command was used
+  if (cli.has_command()) {
+    std::string command = cli.get_command();
+    const auto &cmd_args = cli.get_command_args();
+
+    if (command == "init") {
+      // Define which flags are valid for init
+      std::set<std::string> valid_flags_for_init = {"-y", "--yes"};
+
+      // Check for unused flags
+      cli.warn_unused_flags(valid_flags_for_init);
+
+      // Handle init command
+      bool use_defaults = cli.is_flag_set("-y") || cli.is_flag_set("--yes");
+      project.init(use_defaults);
+
+      // Check for unused command arguments
+      for (const auto &arg : cmd_args) {
+        std::cout << WARN_MSG << "argument '" << arg
+                  << "' is not used with 'init' command\n";
+      }
+
+    } else if (command == "install" || command == "i") {
+      // Define which flags are valid for install
+      std::set<std::string> valid_flags_for_install = {"-g", "--global"};
+
+      // Check for unused flags
+      cli.warn_unused_flags(valid_flags_for_install);
+
+      // Handle install command
+      bool global = cli.is_flag_set("-g") || cli.is_flag_set("--global");
+
+      // cmd_args contains what to install
+      if (cmd_args.empty()) {
+        std::println("No libraries specified to install");
+      } else {
+        for (const auto &lib : cmd_args) {
+          std::println("Installing {} (global={})", lib, global);
+          if (!lib.starts_with("https://") || !lib.starts_with("www.")) {
+            /* Assume git repo */
+            std::system(
+                std::string("git submodule add https://www.github.com/" + lib)
+                    .c_str());
+            project.add_lib(lib);
+          }
+        }
+      }
+    }
+  } else {
+    // No command specified - no flags are valid except -h
+    std::set<std::string> valid_flags_no_command = {"-h", "--help"};
+    cli.warn_unused_flags(valid_flags_no_command);
+
+    const auto &instructions = cli.get_instructions();
+
+    if (!instructions.empty()) {
+      std::cout << WARN_MSG
+                << "arguments were provided but no command was specified\n";
+      std::println("Available commands: init, install");
+    } else {
+      // No command and no instructions - show help
+      cli.print_help();
+    }
+  }
+
+  return 0;
+}
+
+===== ALL HEADER FILES =====
+
+--- src/cli.hpp ---
+#pragma once
+
+#include <algorithm>
+#include <format>
+#include <functional>
+#include <iostream>
+#include <map>
+#include <print>
+#include <random>
+#include <set>
+#include <string>
+#include <vector>
+
+#include "utils.hpp"
+
+template <typename T, typename A = std::allocator<T>>
+using Arena = std::vector<T, A>;
+
+// Enhanced Flag structure that can store values
+// Update the Flag struct:
+struct Flag {
+  Arena<std::string> names;
+  std::string description;
+  bool is_set = false;
+  bool expects_value = false;
+  std::string value;
+  int count = 0; // Add this to track how many times flag appears
+
+  Flag(const Arena<std::string> &names, const std::string &description,
+       bool expects_value = false)
+      : names(names), description(description), expects_value(expects_value) {}
+};
+
+// Command structure for subcommands (formerly first_instruction)
+struct Command {
+  Arena<std::string> names;
+  std::string description;
+
+  Command(const Arena<std::string> &names, const std::string &description)
+      : names(names), description(description) {}
+};
+
+class Cli {
+private:
+  Arena<std::string> args;
+  Arena<Flag> flags;
+  Arena<Command> commands;
+  std::map<std::string, size_t> flag_map; // Store indices instead of pointers
+  std::map<std::string, Command *> command_map; // For quick command lookup
+  std::string active_command;      // The command that was found (if any)
+  Arena<std::string> command_args; // Arguments after the command
+
+  static constexpr const char *const fonts[] = {
+      "banner", "block",    "digital",  "lean",     "mnemonic", "shadow",
+      "small",  "smshadow", "standard", "big",      "bubble",   "ivrit",
+      "mini",   "script",   "slant",    "smscript", "smslant",  "term"};
+
+  static constexpr size_t fonts_count = sizeof(fonts) / sizeof(fonts[0]);
+
+public:
+  Cli(int ac, const char **argv) {
+    if (ac > 0) {
+      this->args = Arena<std::string>(argv + 1, argv + ac);
+    }
+  }
+
+  Cli(const Arena<std::string> &arguments) : args(arguments) {}
+
+  void add_flag(const Arena<std::string> &names, const std::string &description,
+                bool expects_value = false) {
+    flags.emplace_back(names, description, expects_value);
+    size_t index = flags.size() - 1;
+    for (const auto &name : names) {
+      flag_map[name] = index;
+    }
+  }
+
+  // Add a command (formerly first_instruction)
+  void add_command(const Arena<std::string> &names,
+                   const std::string &description) {
+    commands.emplace_back(names, description);
+    for (const auto &name : names) {
+      command_map[name] = &commands.back();
+    }
+  }
+
+  void args_break_down() {
+    instructions.clear();
+    active_command.clear();
+    command_args.clear();
+
+    // Reset flags
+    for (auto &flag : flags) {
+      flag.is_set = false;
+      flag.value.clear();
+      flag.count = 0; // Reset count
+    }
+
+    bool found_command = false;
+
+    for (size_t i = 0; i < args.size(); ++i) {
+      const auto &arg = args[i];
+
+      if (!found_command && command_map.find(arg) != command_map.end()) {
+        // Found a command
+        active_command = arg;
+        found_command = true;
+      } else if (flag_map.find(arg) != flag_map.end()) {
+        // Found a flag - use index to get the flag
+        size_t index = flag_map[arg];
+        Flag &flag = flags[index];
+        flag.is_set = true;
+        flag.count++; // Increment count
+
+        if (flag.expects_value && i + 1 < args.size()) {
+          // Next argument is the flag's value
+          flag.value = args[++i];
+        }
+      } else {
+        // It's either an instruction or a command argument
+        if (found_command) {
+          command_args.push_back(arg);
+        } else {
+          instructions.push_back(arg);
+        }
+      }
+    }
+  }
+
+  /*
+   * We are assuming this function isn't used
+   * a lot so we will reinitialize the random_device
+   * one every call instead of keeping it in the class
+   */
+  i64 get_rand(i64 floor, i64 ceiling) const {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distrib(floor, ceiling);
+    return distrib(gen);
+  }
+
+  // Enhanced help printing with commands
+  void print_help() const {
+    std::cout << ANSI_BOLD << ANSI_FG_YELLOW << '\n';
+    std::system(std::string(std::string("echo cooki | figlet -f ") +
+                            fonts[get_rand(0, fonts_count - 1)])
+                    .c_str());
+
+    std::cout << ANSI_RESET << "Usage:\n";
+    if (!commands.empty()) {
+      std::cout << "cooki [FLAGS] <COMMAND> [ARGS...]\n\n";
+    } else {
+      std::cout << "cooki [FLAGS] [INSTRUCTIONS...]\n\n";
+    }
+
+    if (!commands.empty()) {
+      std::cout << "Commands:\n";
+      for (const auto &cmd : commands) {
+        std::cout << "  ";
+        bool first = true;
+        for (const auto &name : cmd.names) {
+          if (!first)
+            std::cout << ", ";
+          std::cout << name;
+          first = false;
+        }
+        std::cout << "\n      " << cmd.description << "\n";
+      }
+      std::cout << "\n";
+    }
+
+    if (!flags.empty()) {
+      std::cout << "Flags:\n";
+      for (const auto &flag : flags) {
+        std::cout << "  ";
+        bool first = true;
+        for (const auto &name : flag.names) {
+          if (!first)
+            std::cout << ", ";
+          std::cout << name;
+          first = false;
+        }
+        if (flag.expects_value) {
+          std::cout << " <value>";
+        }
+        std::cout << "\n      " << flag.description << "\n";
+      }
+    }
+
+    if (!instructions.empty() && commands.empty()) {
+      std::cout << "\nInstructions:\n";
+      for (const auto &instr : instructions) {
+        std::cout << "  " << instr << "\n";
+      }
+    }
+  }
+
+  // Get flag value if flag exists and was set with a value
+  std::string get_flag_value(const std::string &flag_name) const {
+    auto it = flag_map.find(flag_name);
+    if (it != flag_map.end() && flags[it->second].is_set) {
+      return flags[it->second].value;
+    }
+    return "";
+  }
+
+  // Check if flag exists and was set
+  bool is_flag_set(const std::string &flag_name) const {
+    auto it = flag_map.find(flag_name);
+    if (it != flag_map.end()) {
+      return flags[it->second].is_set;
+    }
+    return false;
+  }
+
+  // Add this method to the Cli class:
+  std::vector<std::string> get_set_flags() const {
+    std::vector<std::string> result;
+    for (const auto &pair : flag_map) {
+      if (flags[pair.second].is_set) {
+        result.push_back(pair.first);
+      }
+    }
+    return result;
+  }
+
+  // And update warn_unused_flags:
+  // In cli.hpp, update the warn_unused_flags method:
+  void warn_unused_flags(const std::set<std::string> &valid_flags) const {
+    std::set<size_t>
+        already_warned; // Track which flag indices we've already warned about
+
+    for (const auto &flag_name : get_set_flags()) {
+      auto it = flag_map.find(flag_name);
+      if (it == flag_map.end())
+        continue;
+
+      size_t flag_index = it->second;
+
+      // Skip if we've already warned about this flag (handles aliases)
+      if (already_warned.find(flag_index) != already_warned.end()) {
+        continue;
+      }
+
+      const Flag &flag = flags[flag_index];
+
+      // Check if any of this flag's names are in valid_flags
+      bool is_valid = false;
+      for (const auto &name : flag.names) {
+        if (valid_flags.find(name) != valid_flags.end()) {
+          is_valid = true;
+          break;
+        }
+      }
+
+      // If flag is set but not valid (and not help flag), warn about it
+      if (flag.is_set && !is_valid) {
+        // Skip help flags
+        bool is_help_flag = false;
+        for (const auto &name : flag.names) {
+          if (name == "-h" || name == "--help") {
+            is_help_flag = true;
+            break;
+          }
+        }
+
+        if (!is_help_flag) {
+          // Format all names for this flag
+          std::string all_names;
+          for (size_t i = 0; i < flag.names.size(); ++i) {
+            if (i > 0)
+              all_names += ", ";
+            all_names += flag.names[i];
+          }
+          std::cout << WARN_MSG << "unused flag {" << all_names << "}\n";
+          already_warned.insert(flag_index);
+        }
+      }
+    }
+  }
+
+  // Add this method to the Cli class:
+  void check_duplicate_flags() const {
+    for (const auto &flag : flags) {
+      if (flag.count > 1) {
+        std::string all_names;
+        for (size_t i = 0; i < flag.names.size(); ++i) {
+          if (i > 0)
+            all_names += ", ";
+          all_names += flag.names[i];
+        }
+
+        std::cout << WARN_MSG << "flag {" << all_names << "} specified "
+                  << flag.count << " times\n";
+      }
+    }
+  }
+
+  // Check if a command was used
+  bool has_command() const { return !active_command.empty(); }
+
+  // Get the active command name
+  std::string get_command() const { return active_command; }
+
+  // Get arguments for the active command
+  const Arena<std::string> &get_command_args() const { return command_args; }
+
+  Arena<Flag> get_flags() const { return this->flags; }
+
+  const Arena<std::string> &get_instructions() const { return instructions; }
+
+private:
+  // Kept for backward compatibility - contains instructions when no command is
+  // used
+  Arena<std::string> instructions;
+
+  // Example usage in main:
+  /*
+  int main(int argc, char** argv) {
+      Cli cli(argc, argv);
+
+      cli.add_flag({"-h", "--help"}, "Show help message");
+      cli.add_flag({"-v", "--verbose"}, "Enable verbose output");
+      cli.add_flag({"-o", "--output"}, "Output file name", true);
+
+      cli.add_command({"init", "i"}, "Initialize a new project");
+      cli.add_command({"build", "b"}, "Build the project");
+      cli.add_command({"run", "r"}, "Run the project");
+
+      cli.args_break_down();
+
+      if (cli.is_flag_set("-h") || cli.is_flag_set("--help")) {
+          cli.print_help();
+          return 0;
+      }
+
+      if (cli.has_command()) {
+          std::string cmd = cli.get_command();
+          auto cmd_args = cli.get_command_args();
+
+          if (cmd == "init") {
+              // Handle init command
+          } else if (cmd == "build") {
+              // Handle build command
+          } else if (cmd == "run") {
+              // Handle run command
+          }
+      } else {
+          auto instructions = cli.get_instructions();
+          std::cout << "Instructions:\n";
+          for (const auto& instr : instructions) {
+              std::cout << "  " << instr << "\n";
+          }
+      }
+
+      return 0;
+  }
+  */
+};
+
+--- src/pacman.hpp ---
+#pragma once
+
+#include "cli.hpp"
+
+class Gitman {
+public:
+};
+
+class Pacman {
+public:
+  void install(const std::string &package_name) {}
+
+  void install(const Arena<std::string> &package_names) {
+    for (const auto &package_name : package_names)
+      this->install(package_name);
+  }
+};
+
+--- src/utils.hpp ---
+#pragma once
+
+#include <array>
+#include <cassert>
+#include <cinttypes>
+#include <cstdio>
+#include <cstdlib>
+#include <filesystem>
+#include <format>
+#include <fstream>
+#include <string>
+#include <vector>
+
+// ============================================================
+// INTEGER TYPE ALIASES
+// ============================================================
+using u8 = std::uint8_t;
+using u16 = std::uint16_t;
+using u32 = std::uint32_t;
+using u64 = std::uint64_t;
+
+using i8 = std::int8_t;
+using i16 = std::int16_t;
+using i32 = std::int32_t;
+using i64 = std::int64_t;
+
+// ============================================================
+// FLOATING-POINT TYPE ALIASES
+// ============================================================
+using f32 = float;
+using f64 = double;
+
+namespace fs = std::filesystem;
+
+// ============================================================
+// ANSI SGR CODES (All as constexpr std::string_view for efficiency)
+// ============================================================
+
+// Attributes
+constexpr std::string_view ANSI_RESET = "\033[0m";
+constexpr std::string_view ANSI_BOLD = "\033[1m";
+constexpr std::string_view ANSI_DIM = "\033[2m";
+constexpr std::string_view ANSI_UNDERLINE = "\033[4m";
+constexpr std::string_view ANSI_BLINK = "\033[5m";
+constexpr std::string_view ANSI_REVERSE = "\033[7m";
+constexpr std::string_view ANSI_HIDDEN = "\033[8m";
+
+// Standard foreground colors (30–37)
+constexpr std::string_view ANSI_FG_BLACK = "\033[30m";
+constexpr std::string_view ANSI_FG_RED = "\033[31m";
+constexpr std::string_view ANSI_FG_GREEN = "\033[32m";
+constexpr std::string_view ANSI_FG_YELLOW = "\033[33m";
+constexpr std::string_view ANSI_FG_BLUE = "\033[34m";
+constexpr std::string_view ANSI_FG_MAGENTA = "\033[35m";
+constexpr std::string_view ANSI_FG_CYAN = "\033[36m";
+constexpr std::string_view ANSI_FG_WHITE = "\033[37m";
+
+// Bright foreground colors (90–97)
+constexpr std::string_view ANSI_FG_BRIGHT_BLACK = "\033[90m";
+constexpr std::string_view ANSI_FG_BRIGHT_RED = "\033[91m";
+constexpr std::string_view ANSI_FG_BRIGHT_GREEN = "\033[92m";
+constexpr std::string_view ANSI_FG_BRIGHT_YELLOW = "\033[93m";
+constexpr std::string_view ANSI_FG_BRIGHT_BLUE = "\033[94m";
+constexpr std::string_view ANSI_FG_BRIGHT_MAGENTA = "\033[95m";
+constexpr std::string_view ANSI_FG_BRIGHT_CYAN = "\033[96m";
+constexpr std::string_view ANSI_FG_BRIGHT_WHITE = "\033[97m";
+
+// Standard background colors (40–47)
+constexpr std::string_view ANSI_BG_BLACK = "\033[40m";
+constexpr std::string_view ANSI_BG_RED = "\033[41m";
+constexpr std::string_view ANSI_BG_GREEN = "\033[42m";
+constexpr std::string_view ANSI_BG_YELLOW = "\033[43m";
+constexpr std::string_view ANSI_BG_BLUE = "\033[44m";
+constexpr std::string_view ANSI_BG_MAGENTA = "\033[45m";
+constexpr std::string_view ANSI_BG_CYAN = "\033[46m";
+constexpr std::string_view ANSI_BG_WHITE = "\033[47m";
+
+// Bright background colors (100–107)
+constexpr std::string_view ANSI_BG_BRIGHT_BLACK = "\033[100m";
+constexpr std::string_view ANSI_BG_BRIGHT_RED = "\033[101m";
+constexpr std::string_view ANSI_BG_BRIGHT_GREEN = "\033[102m";
+constexpr std::string_view ANSI_BG_BRIGHT_YELLOW = "\033[103m";
+constexpr std::string_view ANSI_BG_BRIGHT_BLUE = "\033[104m";
+constexpr std::string_view ANSI_BG_BRIGHT_MAGENTA = "\033[105m";
+constexpr std::string_view ANSI_BG_BRIGHT_CYAN = "\033[106m";
+constexpr std::string_view ANSI_BG_BRIGHT_WHITE = "\033[107m";
+
+// ============================================================
+// FORMATTED MESSAGES
+// ============================================================
+inline const std::string PROJECT_MSG = std::string(ANSI_FG_YELLOW) +
+                                       std::string(ANSI_BOLD) +
+                                       "Cooki: " + std::string(ANSI_RESET);
+
+inline const std::string ERROR_MSG = PROJECT_MSG + std::string(ANSI_BOLD) +
+                                     std::string(ANSI_FG_RED) +
+                                     "error: " + std::string(ANSI_RESET);
+
+inline const std::string WARN_MSG = PROJECT_MSG + std::string(ANSI_BOLD) +
+                                    std::string(ANSI_FG_MAGENTA) +
+                                    "warning: " + std::string(ANSI_RESET);
+
+// ============================================================
+// ASSERTION MACRO
+// ============================================================
+#define AASSERT(expr, msg, ...)                                                \
+  do {                                                                         \
+    if (!(expr)) {                                                             \
+      std::fprintf(stderr, "%s", ERROR_MSG.c_str());                           \
+      std::fprintf(stderr, msg, ##__VA_ARGS__);                                \
+      std::fprintf(stderr, "\n%s%sAborted%s\n", PROJECT_MSG.c_str(),           \
+                   ANSI_BOLD.data(), ANSI_RESET.data());                       \
+      std::abort();                                                            \
+    }                                                                          \
+  } while (0)
+
+// ============================================================
+// SYSTEM COMMAND EXECUTION
+// ============================================================
+inline std::string run_cmd(const std::string &cmd) {
+  AASSERT(!cmd.empty(), "Command string cannot be empty");
+
+  std::array<char, 256> buffer{};
+  std::string result;
+
+  FILE *pipe = popen(cmd.c_str(), "r");
+  AASSERT(pipe != nullptr, "Failed to open pipe for command: %s", cmd.c_str());
+
+  while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe) !=
+         nullptr) {
+    result += buffer.data();
+  }
+
+  int status = pclose(pipe);
+  AASSERT(status == 0, "Command failed with exit code %d: %s", status,
+          cmd.c_str());
+
+  // Remove trailing newline if present
+  if (!result.empty() && result.back() == '\n') {
+    result.pop_back();
+  }
+
+  return result;
+}
+
+// ============================================================
+// EXECUTABLE PATH FINDING
+// ============================================================
+inline std::string find_exec_path(const std::string &cmd) {
+  AASSERT(!cmd.empty(), "Command name cannot be empty");
+  return run_cmd("command -v " + cmd);
+}
+
+// ============================================================
+// DEFAULT COMPILER DETECTION
+// ============================================================
+inline std::string find_default_compiler() {
+  // Prefer clang++
+  if (auto path = find_exec_path("clang++"); !path.empty()) {
+    return path;
+  }
+
+  // Fallback to g++
+  if (auto path = find_exec_path("g++"); !path.empty()) {
+    return path;
+  }
+
+  // Last resort: generic cc with C++ flag
+  if (auto path = find_exec_path("cc"); !path.empty()) {
+    return path + " -x c++";
+  }
+
+  AASSERT(false, "No C++ compiler found (tried: clang++, g++, cc)");
+  return ""; // Unreachable due to assertion
+}
+
+// ============================================================
+// FILE SYSTEM UTILITIES
+// ============================================================
+inline bool file_exists(const std::string &file_path) {
+  AASSERT(!file_path.empty(), "File path cannot be empty");
+  return fs::exists(file_path);
+}
+
+inline std::string readfile(const fs::path &path) {
+  AASSERT(fs::exists(path), "File does not exist: %s", path.string().c_str());
+  AASSERT(!fs::is_directory(path), "Path is a directory, not a file: %s",
+          path.string().c_str());
+
+  std::ifstream in(path, std::ios::binary | std::ios::ate);
+  AASSERT(in.is_open(), "Failed to open file for reading: %s",
+          path.string().c_str());
+
+  const auto size = in.tellg();
+  AASSERT(size >= 0, "Failed to determine file size: %s",
+          path.string().c_str());
+
+  std::string contents(static_cast<std::size_t>(size), '\0');
+  in.seekg(0);
+
+  const auto bytes_read = in.read(&contents[0], size).gcount();
+  AASSERT(bytes_read == size,
+          "Read mismatch: expected %lld bytes, got %lld bytes",
+          static_cast<long long>(size), static_cast<long long>(bytes_read));
+
+  return contents;
+}
+
+// Overload for std::string path
+inline std::string readfile(const std::string &path) {
+  AASSERT(!path.empty(), "File path cannot be empty");
+  return readfile(fs::path(path));
+}
+
+inline bool writefile(const fs::path &path, const std::string &content) {
+  AASSERT(!path.empty(), "Output path cannot be empty");
+
+  // Ensure parent directory exists
+  const auto parent_dir = path.parent_path();
+  if (!parent_dir.empty() && !fs::exists(parent_dir)) {
+    AASSERT(fs::create_directories(parent_dir),
+            "Failed to create parent directory: %s",
+            parent_dir.string().c_str());
+  }
+
+  std::ofstream file(path, std::ios::binary);
+  AASSERT(file.is_open(), "Failed to open file for writing: %s",
+          path.string().c_str());
+
+  file << content;
+  AASSERT(file.good(), "Failed to write content to file: %s",
+          path.string().c_str());
+
+  return true;
+}
+
+// Overload for std::string path
+inline bool writefile(const std::string &path, const std::string &content) {
+  AASSERT(!path.empty(), "Output path cannot be empty");
+  return writefile(fs::path(path), content);
+}
+
+// ============================================================
+// ADDITIONAL HELPER FUNCTIONS
+// ============================================================
+inline std::size_t file_size(const fs::path &path) {
+  AASSERT(fs::exists(path), "File does not exist: %s", path.string().c_str());
+  AASSERT(!fs::is_directory(path), "Path is a directory, not a file: %s",
+          path.string().c_str());
+
+  const auto size = fs::file_size(path);
+  AASSERT(size != static_cast<std::uintmax_t>(-1),
+          "Failed to get file size: %s", path.string().c_str());
+
+  return static_cast<std::size_t>(size);
+}
+
+// String manipulation utilities
+inline std::string trim(const std::string &str) {
+  auto front = std::find_if_not(str.begin(), str.end(), [](unsigned char ch) {
+    return std::isspace(ch);
+  });
+  auto back = std::find_if_not(str.rbegin(), str.rend(), [](unsigned char ch) {
+                return std::isspace(ch);
+              }).base();
+  return (front < back) ? std::string(front, back) : std::string();
+}
+
+inline std::vector<std::string> split(const std::string &str, char delimiter) {
+  std::vector<std::string> tokens;
+  std::string token;
+  std::istringstream token_stream(str);
+
+  while (std::getline(token_stream, token, delimiter)) {
+    if (!token.empty()) {
+      tokens.push_back(token);
+    }
+  }
+
+  return tokens;
+}
+
+inline bool ends_with(const std::string &str, const std::string &suffix) {
+  return str.size() >= suffix.size() &&
+         str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
+}
+
+inline bool starts_with(const std::string &str, const std::string &prefix) {
+  return str.size() >= prefix.size() &&
+         str.compare(0, prefix.size(), prefix) == 0;
+}
+
+--- src/project.hpp ---
+#pragma once
+
+#include <algorithm>
+#include <cctype>
+#include <complex>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <vector>
+
+#include "../nlohmann/json.hpp"
+#include "filegen.hpp"
+#include "utils.hpp"
+
+using json = nlohmann::ordered_json;
+
+struct Version {
+  u32 major, minor, patch;
+  std::string prerelease;
+  std::string build;
+
+  Version() : major(1), minor(0), patch(0) {}
+
+  inline Version(u32 _major, u32 _minor, u32 _patch = 0,
+                 const std::string &_prerelease = "",
+                 const std::string &_build = "")
+      : major(_major), minor(_minor), patch(_patch), prerelease(_prerelease),
+        build(_build) {}
+
+  std::string to_string() const {
+    std::string result = std::to_string(major) + "." + std::to_string(minor) +
+                         "." + std::to_string(patch);
+    if (!prerelease.empty()) {
+      result += "-" + prerelease;
+    }
+    if (!build.empty()) {
+      result += "+" + build;
+    }
+    return result;
+  }
+
+  static Version from_string(const std::string &version_str) {
+    Version version;
+    std::string str = version_str;
+
+    if (str.empty())
+      return Version(1, 0, 0);
+
+    // Parse build metadata if present
+    size_t plus_pos = str.find('+');
+    if (plus_pos != std::string::npos) {
+      version.build = str.substr(plus_pos + 1);
+      str = str.substr(0, plus_pos);
+    }
+
+    // Parse prerelease if present
+    size_t dash_pos = str.find('-');
+    if (dash_pos != std::string::npos) {
+      version.prerelease = str.substr(dash_pos + 1);
+      str = str.substr(0, dash_pos);
+    }
+
+    // Parse major.minor.patch
+    size_t dot1 = str.find('.');
+    size_t dot2 = str.find('.', dot1 + 1);
+
+    if (dot1 != std::string::npos) {
+      version.major = std::stoi(str.substr(0, dot1));
+      if (dot2 != std::string::npos) {
+        version.minor = std::stoi(str.substr(dot1 + 1, dot2 - dot1 - 1));
+        version.patch = std::stoi(str.substr(dot2 + 1));
+      } else {
+        version.minor = std::stoi(str.substr(dot1 + 1));
+        version.patch = 0;
+      }
+    } else {
+      version.major = std::stoi(str);
+      version.minor = 0;
+      version.patch = 0;
+    }
+
+    return version;
+  }
+};
+
+enum class ProjectLang { C, CPP };
+enum class ProjectType { EXE, LIB };
+
+class Project {
+private:
+  std::string name;
+  ProjectType type;
+  Version version;
+  std::string description;
+  std::string author;
+  std::string license;
+  ProjectLang lang;
+  std::string git_repo;
+  std::string compiler_path;
+
+  // New field: libraries
+  std::vector<std::string> libs;
+
+  std::string src_dir = "src";
+  std::string lib_dir = "lib";
+  std::string bin_dir = "bin";
+  std::string inc_dir = "include";
+
+  std::vector<std::string> dependencies;
+
+  Filegen filegen;
+
+public:
+  inline Project(const std::string &arg0,
+                 const std::string &project_data = "./project.json")
+      : filegen(arg0) {
+    if (fs::exists(project_data))
+      parse(project_data);
+  }
+
+  inline Project(const std::string &arg0, const std::string &_name,
+                 const Version &_version, const std::string &_description,
+                 const std::string &_author, const std::string &_license,
+                 ProjectLang _lang, const std::string &_git_repo,
+                 const std::string &_compiler_path,
+                 const std::vector<std::string> &_libs = {})
+      : name(_name), version(_version), description(_description),
+        author(_author), license(_license), lang(_lang), git_repo(_git_repo),
+        compiler_path(_compiler_path), libs(_libs), filegen(arg0) {}
+
+  static inline std::string
+  prompt_with_default(const std::string &prompt,
+                      const std::string &default_value,
+                      bool non_interactive = false, bool newline = true) {
+    if (non_interactive) {
+      return default_value;
+    }
+
+    std::cout << prompt;
+    if (!default_value.empty()) {
+      std::cout << " (" << default_value << ") ";
+    }
+
+    std::cout << ": ";
+
+    std::string input;
+    std::getline(std::cin, input);
+
+    if (input.empty() && !default_value.empty()) {
+      return default_value;
+    }
+    return input;
+  }
+
+  static inline bool prompt_yes_no(const std::string &prompt,
+                                   bool default_value,
+                                   bool non_interactive = false) {
+    if (non_interactive) {
+      return default_value;
+    }
+
+    std::cout << prompt << " (y/n) [" << (default_value ? "Y" : "N") << "]: ";
+
+    std::string input;
+    std::getline(std::cin, input);
+
+    if (input.empty()) {
+      return default_value;
+    }
+
+    std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+    return (input == "y" || input == "yes");
+  }
+
+  inline Project _init(bool non_interactive = false) {
+    Project project(filegen.get_arg0());
+
+    if (!non_interactive) {
+      std::cout << "\n\x1b[36mThis utility will walk you through creating a "
+                   "project.json file.\n";
+      std::cout << "Press ^C at any time to quit.\x1b[0m\n\n";
+    }
+
+    // Get current directory name as default project name
+    std::string default_name = "my-project";
+    std::string current_dir = fs::current_path().filename().string();
+    if (!current_dir.empty() && current_dir != ".") {
+      default_name = current_dir;
+    }
+
+    // NPM-like prompts
+    project.name =
+        prompt_with_default("project name", default_name, non_interactive);
+    std::string type_str =
+        prompt_with_default("project type", "Executable", non_interactive);
+    project.type = (type_str == "Executable" || type_str == "exe")
+                       ? ProjectType::EXE
+                       : ProjectType::LIB;
+    project.version = Version::from_string(
+        prompt_with_default("version", "1.0.0", non_interactive));
+    project.description =
+        prompt_with_default("description", "", non_interactive);
+    project.author = prompt_with_default("author", "", non_interactive);
+    project.license = prompt_with_default("license", "MIT", non_interactive);
+
+    std::string lang_str =
+        prompt_with_default("project lang (C/C++)", "C++", non_interactive);
+    project.lang = (lang_str == "C" || lang_str == "c") ? ProjectLang::C
+                                                        : ProjectLang::CPP;
+
+    project.git_repo =
+        prompt_with_default("git repository", "", non_interactive);
+
+    std::string default_compiler =
+        (project.lang == ProjectLang::C) ? "clang" : "clang++";
+    project.compiler_path =
+        prompt_with_default("compiler path", default_compiler, non_interactive);
+
+    // Prompt for directories
+    project.src_dir = prompt_with_default("source_dir", "src", non_interactive);
+    project.lib_dir =
+        prompt_with_default("library_dir", "lib", non_interactive);
+    project.bin_dir = prompt_with_default("binary_dir", "bin", non_interactive);
+    project.inc_dir =
+        prompt_with_default("include_dir", "include", non_interactive);
+
+    // Ask about libraries
+    if (!non_interactive) {
+      std::cout << "\nEnter libraries (space-separated, press Enter to skip): ";
+      std::string libs_input;
+      std::getline(std::cin, libs_input);
+
+      if (!libs_input.empty()) {
+        size_t start = 0, end = 0;
+        while ((end = libs_input.find(' ', start)) != std::string::npos) {
+          if (end != start) {
+            project.libs.push_back(libs_input.substr(start, end - start));
+          }
+          start = end + 1;
+        }
+        if (start < libs_input.length()) {
+          project.libs.push_back(libs_input.substr(start));
+        }
+      }
+    }
+
+    // Show summary (skip in non-interactive mode)
+    if (!non_interactive) {
+      std::cout << "\n\x1b[32mAbout to write to " << fs::current_path().string()
+                << "/project.json:\x1b[0m\n\n";
+
+      json summary;
+      summary["name"] = project.name;
+      summary["type"] =
+          (project.type == ProjectType::EXE) ? "Executable" : "Library";
+      summary["version"] = project.version.to_string();
+      summary["description"] = project.description;
+      summary["author"] = project.author;
+      summary["license"] = project.license;
+      summary["lang"] = (project.lang == ProjectLang::C) ? "C" : "C++";
+      if (!project.git_repo.empty()) {
+        summary["git_repo"] = project.git_repo;
+      }
+      summary["compiler_path"] = project.compiler_path;
+
+      // Add directory fields
+      summary["src_dir"] = project.src_dir;
+      summary["lib_dir"] = project.lib_dir;
+      summary["bin_dir"] = project.bin_dir;
+      summary["inc_dir"] = project.inc_dir;
+
+      if (!project.libs.empty()) {
+        summary["libs"] = project.libs;
+      }
+
+      std::string confirm = prompt_with_default(
+          "\x1b[33mIs this OK?\x1b[0m [Y/n]", "", false, false);
+
+      std::transform(confirm.begin(), confirm.end(), confirm.begin(),
+                     ::tolower);
+
+      if (confirm == "yes" || confirm == "y" || confirm == "") {
+        return project;
+      } else {
+        std::cout << "\x1b[31mAborted.\x1b[0m\n";
+        exit(0);
+      }
+    } else {
+      // Non-interactive mode - just create with defaults
+      return project;
+    }
+  }
+
+  inline void init(bool non_interactive = false) {
+    *this = _init(non_interactive);
+
+    std::system("git init");
+
+    write();
+
+    if (type == ProjectType::EXE) {
+      make_dirs();
+      make_files();
+    } else {
+    }
+  }
+
+  inline void parse(const std::string &proj_file_path) {
+    std::ifstream rstream(proj_file_path);
+    AASSERT(rstream.good(), "Failed to read %s", proj_file_path.c_str());
+
+    try {
+      json read = json::parse(rstream);
+
+      // Parse fields
+      AASSERT(read.contains("name"),
+              "Invalid project file %s, field name not found;",
+              proj_file_path.c_str());
+      name = read.value("name", "");
+
+      // Add this block to parse the type field
+      if (read.contains("type")) {
+        std::string type_str = read.value("type", "Executable");
+        std::string lower_type = type_str;
+        std::transform(lower_type.begin(), lower_type.end(), lower_type.begin(),
+                       ::tolower);
+        type = (lower_type == "executable" || lower_type == "exe")
+                   ? ProjectType::EXE
+                   : ProjectType::LIB;
+      }
+
+      if (read.contains("version")) {
+        version = Version::from_string(read.value("version", "1.0.0"));
+      }
+
+      if (read.contains("description")) {
+        description = read.value("description", "");
+      }
+
+      if (read.contains("author")) {
+        author = read.value("author", "");
+      }
+
+      if (read.contains("license")) {
+        license = read.value("license", "MIT");
+      }
+
+      if (read.contains("lang")) {
+        std::string lang_str = read.value("lang", "C++");
+        lang = (lang_str == "C") ? ProjectLang::C : ProjectLang::CPP;
+      }
+
+      if (read.contains("git_repo")) {
+        git_repo = read.value("git_repo", "");
+      }
+
+      if (read.contains("compiler_path")) {
+        compiler_path = read.value("compiler_path", "");
+      } else {
+        compiler_path = (lang == ProjectLang::C) ? "clang" : "clang++";
+      }
+
+      // Parse directory fields
+      if (read.contains("src_dir")) {
+        src_dir = read.value("src_dir", "src");
+      }
+      if (read.contains("lib_dir")) {
+        lib_dir = read.value("lib_dir", "lib");
+      }
+      if (read.contains("bin_dir")) {
+        bin_dir = read.value("bin_dir", "bin");
+      }
+      if (read.contains("inc_dir")) {
+        inc_dir = read.value("inc_dir", "include");
+      }
+
+      // Parse libs
+      if (read.contains("libs")) {
+        libs = read["libs"].get<std::vector<std::string>>();
+      }
+
+      if (read.contains("dependencies")) {
+        dependencies = read["dependencies"].get<std::vector<std::string>>();
+      }
+
+    } catch (json::parse_error &e) {
+      std::cerr << "Parse error: " << e.what() << std::endl;
+    }
+  }
+
+  inline void write(const std::string &proj_file_path = "project.json") const {
+    json data;
+
+    // Write fields in npm-like order
+    data["name"] = name;
+    data["type"] =
+        (type == ProjectType::EXE) ? "Executable" : "Library"; // Add this line
+    data["version"] = version.to_string();
+    data["description"] = description;
+    data["author"] = author;
+    data["license"] = license;
+    data["lang"] = (lang == ProjectLang::C) ? "C" : "C++";
+    if (!git_repo.empty()) {
+      data["git_repo"] = git_repo;
+    }
+    data["compiler_path"] = compiler_path;
+
+    // Add directory fields
+    data["src_dir"] = src_dir;
+    data["lib_dir"] = lib_dir;
+    data["bin_dir"] = bin_dir;
+    data["inc_dir"] = inc_dir;
+
+    // Add file extension based on project lang
+    data["ext"] = (lang == ProjectLang::C) ? ".c" : ".cpp";
+
+    if (!libs.empty()) {
+      data["libs"] = libs;
+    }
+
+    if (!dependencies.empty()) {
+      data["dependencies"] = dependencies;
+    }
+
+    std::ofstream write(proj_file_path);
+    AASSERT(write.is_open(), "Failed to write to file %s;",
+            proj_file_path.c_str());
+
+    std::cout << std::setw(2) << data << std::endl;
+    write << std::setw(2) << data << std::endl;
+
+    std::cout << "\x1b[32m✓\x1b[0m Project file created: " << proj_file_path
+              << std::endl;
+  }
+
+  inline void make_exe_dirs() {
+    fs::create_directories(src_dir);
+    fs::create_directories(lib_dir);
+    fs::create_directories(bin_dir);
+
+    if (src_dir != inc_dir)
+      fs::create_directories(inc_dir);
+  }
+
+  inline void make_dirs() {
+    if (type == ProjectType::EXE)
+      make_exe_files() else make_lib_files();
+  }
+
+  inline void make_exe_files() {
+    std::string ext = (lang == ProjectLang::C) ? ".c" : ".cpp";
+    filegen.g_file("makefile");
+
+    filegen.g_file(src_dir + "/main" + ext);
+  }
+
+  // Getters
+  inline const std::string &get_name() const { return name; }
+  inline const Version &get_version() const { return version; }
+  inline const std::string &get_description() const { return description; }
+  inline const std::string &get_author() const { return author; }
+  inline const std::string &get_license() const { return license; }
+  inline ProjectLang get_lang() const { return lang; }
+  inline const std::string &get_git_repo() const { return git_repo; }
+  inline const std::string &get_compiler_path() const { return compiler_path; }
+  inline const std::string &get_src_dir() const { return src_dir; }
+  inline const std::string &get_lib_dir() const { return lib_dir; }
+  inline const std::string &get_bin_dir() const { return bin_dir; }
+  inline const std::string &get_inc_dir() const { return inc_dir; }
+  inline const std::vector<std::string> &get_libs() const { return libs; }
+  inline const std::vector<std::string> &get_dependencies() const {
+    return dependencies;
+  }
+  inline std::string get_ext() const {
+    return (lang == ProjectLang::C) ? ".c" : ".cpp";
+  }
+
+  // Setters
+  inline void set_name(const std::string &value) { name = value; }
+  inline void set_version(const Version &value) { version = value; }
+  inline void set_description(const std::string &value) { description = value; }
+  inline void set_author(const std::string &value) { author = value; }
+  inline void set_license(const std::string &value) { license = value; }
+  inline void set_lang(ProjectLang value) { lang = value; }
+  inline void set_git_repo(const std::string &value) { git_repo = value; }
+  inline void set_compiler_path(const std::string &value) {
+    compiler_path = value;
+  }
+  inline void set_src_dir(const std::string &value) { src_dir = value; }
+  inline void set_lib_dir(const std::string &value) { lib_dir = value; }
+  inline void set_bin_dir(const std::string &value) { bin_dir = value; }
+  inline void set_inc_dir(const std::string &value) { inc_dir = value; }
+  inline void set_libs(const std::vector<std::string> &value) { libs = value; }
+
+  inline void add_lib(const std::string &lib) { libs.push_back(lib); }
+  inline void add_dependency(const std::string &dep) {
+    dependencies.push_back(dep);
+  }
+};
+
+--- src/filegen.hpp ---
+#pragma once
+
+#include <filesystem>
+#include <iostream>
+#include <print>
+
+#include "utils.hpp"
+
+namespace fs = std::filesystem;
+
+class Filegen {
+private:
+  std::string _arg0;
+  fs::path _template_dir;
+
+  // Helper to construct template path for any target
+  fs::path get_template_path_for(const fs::path &target) const {
+    return _template_dir / (target.filename().string() + ".template");
+  }
+
+public:
+  Filegen(const std::string &arg0) : _arg0(arg0) {
+    const fs::path exe_path(_arg0);
+    _template_dir = exe_path.has_parent_path() ? exe_path.parent_path()
+                                               : fs::current_path();
+    _template_dir /= "../templates/";
+
+    AASSERT(fs::exists(_template_dir), "Template directory does not exist: %s",
+            _template_dir.c_str());
+  }
+
+  inline void g_file(std::string_view file) {
+    AASSERT(!file.empty(), "Target file path cannot be empty");
+
+    const fs::path target_path(file);
+    const fs::path template_path = get_template_path_for(target_path);
+
+    // Validate template exists
+    AASSERT(fs::exists(template_path),
+            "Template '%s' not found. Expected at: %s",
+            template_path.filename().c_str(), template_path.c_str());
+
+    // Determine if we're copying a directory or file
+    const bool is_directory = fs::is_directory(template_path);
+    const auto copy_options =
+        is_directory
+            ? fs::copy_options::recursive | fs::copy_options::update_existing
+            : fs::copy_options::update_existing;
+
+    // Log what we're doing
+    // for now
+    // TODO: remove zis?
+    // looks kinda childish idk
+    std::println("📋 {} template '{}' -> '{}'",
+                 is_directory ? "Directory" : "File",
+                 template_path.filename().string(), target_path.string());
+
+    // Ensure parent directory exists for target
+    if (target_path.has_parent_path()) {
+      fs::create_directories(target_path.parent_path());
+    }
+
+    // Perform the copy
+    fs::copy(template_path, target_path, copy_options);
+
+    // Verify success
+    AASSERT(fs::exists(target_path), "Copy failed! Destination not created: %s",
+            target_path.c_str());
+
+    std::println("✅ Successfully applied template to: {}",
+                 target_path.string());
+  }
+
+  inline void gen_files(const std::vector<std::string> &files) {
+    for (const auto &file : files) {
+      g_file(file);
+    }
+  }
+
+  std::string get_arg0() const { return _arg0; }
+  std::string get_template_dir() const { return _template_dir.string(); }
+};
+
+===== BUILD DUMP COMPLETE =====
