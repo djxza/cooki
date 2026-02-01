@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <print>
 #include <set>
@@ -7,6 +8,7 @@
 
 int main(int ac, const char **argv) {
   Cli cli(ac, argv);
+
   Project project(argv[0]);
 
   cli.add_flag({"-h", "--help"}, "Show help");
@@ -62,8 +64,15 @@ int main(int ac, const char **argv) {
       if (cmd_args.empty()) {
         std::println("No libraries specified to install");
       } else {
-        for (const auto &library : cmd_args) {
-          std::println("Installing {} (global: {})", library, global);
+        for (const auto &lib : cmd_args) {
+          std::println("Installing {} (global={})", lib, global);
+          if (!lib.starts_with("https://") || !lib.starts_with("www.")) {
+            /* Assume git repo */
+            std::system(
+                std::string("git submodule add https://www.github.com/" + lib)
+                    .c_str());
+            project.add_lib(lib);
+          }
         }
       }
     }

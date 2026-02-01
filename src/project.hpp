@@ -10,7 +10,7 @@
 #include <vector>
 
 #include "../nlohmann/json.hpp"
-#include "gen.hpp"
+#include "filegen.hpp"
 #include "utils.hpp"
 
 using json = nlohmann::ordered_json;
@@ -103,21 +103,25 @@ private:
   std::string src_dir = "src";
   std::string lib_dir = "lib";
   std::string bin_dir = "bin";
-  std::string inc_dir = "include"; // Fixed typo from "dir" to "include"
+  std::string inc_dir = "include";
 
   std::vector<std::string> dependencies;
 
   Filegen filegen;
 
 public:
-  inline Project(const std::string &arg0) : filegen(arg0) {}
+  inline Project(const std::string &arg0,
+                 const std::string &project_data = "./project.json")
+      : filegen(arg0) {
+    if (fs::exists(project_data))
+      parse(project_data);
+  }
 
   inline Project(const std::string &arg0, const std::string &_name,
                  const Version &_version, const std::string &_description,
                  const std::string &_author, const std::string &_license,
                  ProjectType _type, const std::string &_git_repo,
                  const std::string &_compiler_path,
-                 bool _use_pragma_once = true,
                  const std::vector<std::string> &_libs = {})
       : name(_name), version(_version), description(_description),
         author(_author), license(_license), type(_type), git_repo(_git_repo),
@@ -178,8 +182,7 @@ public:
 
     // Get current directory name as default project name
     std::string default_name = "my-project";
-    std::string current_dir =
-        std::filesystem::current_path().filename().string();
+    std::string current_dir = fs::current_path().filename().string();
     if (!current_dir.empty() && current_dir != ".") {
       default_name = current_dir;
     }
@@ -237,8 +240,7 @@ public:
 
     // Show summary (skip in non-interactive mode)
     if (!non_interactive) {
-      std::cout << "\n\x1b[32mAbout to write to "
-                << std::filesystem::current_path().string()
+      std::cout << "\n\x1b[32mAbout to write to " << fs::current_path().string()
                 << "/project.json:\x1b[0m\n\n";
 
       json summary;
@@ -283,10 +285,12 @@ public:
 
   inline void init(bool non_interactive = false) {
     *this = _init(non_interactive);
+
+    std::system("git init");
+
     write();
 
     make_dirs();
-
     make_files();
   }
 

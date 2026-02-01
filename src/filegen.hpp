@@ -23,6 +23,7 @@ public:
     const fs::path exe_path(_arg0);
     _template_dir = exe_path.has_parent_path() ? exe_path.parent_path()
                                                : fs::current_path();
+    _template_dir /= "../templates/";
 
     AASSERT(fs::exists(_template_dir), "Template directory does not exist: %s",
             _template_dir.c_str());
@@ -70,17 +71,6 @@ public:
                  target_path.string());
   }
 
-  inline void gen_makefile() {
-    std::println("🔨 Generating makefile...");
-    g_file("makefile");
-  }
-
-  inline void gen_main(const std::string &ext) {
-    std::println("🚀 Generating main source file...");
-    g_file("main" + ext);
-  }
-
-  // Bonus: Generate multiple files at once
   inline void gen_files(const std::vector<std::string> &files) {
     for (const auto &file : files) {
       g_file(file);
