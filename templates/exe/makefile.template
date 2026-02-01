@@ -6,7 +6,8 @@ PROJECT_JSON := project.json
 # Extract project settings with error handling
 ifneq ("$(wildcard $(PROJECT_JSON))","")
     PROJECT_NAME   := $(shell jq -r '.name' $(PROJECT_JSON))
-    PROJECT_TYPE   := $(shell jq -r '.type // "C++"' $(PROJECT_JSON))
+    PROJECT_TYPE   := $(shell jq -r '.type // "Executable"' $(PROJECT_JSON))
+    LANG           := $(shell jq -r '.lang // "C++"' $(PROJECT_JSON))
     COMPILER_PATH  := $(shell jq -r '.compiler_path // ""' $(PROJECT_JSON))
     SRC_EXT        := $(shell jq -r '.ext // ".cpp"' $(PROJECT_JSON))
     SRC_DIR        := $(shell jq -r '.src_dir // "src"' $(PROJECT_JSON))
@@ -20,8 +21,8 @@ endif
 # ============================================================================
 # Compiler & Language Configuration
 # ============================================================================
-# Determine compiler based on project type
-ifeq ($(PROJECT_TYPE),C)
+# Determine compiler based on LANGUAGE (lang field), not project type
+ifeq ($(LANG),C)
     # C project configuration
     ifeq ($(COMPILER_PATH),)
         CC := gcc
@@ -40,6 +41,10 @@ else
     STD := c++26
     SRC_FILES := $(shell find $(SRC_DIR) -name "*.cpp" -o -name "*.cc" -o -name "*.cxx" 2>/dev/null)
 endif
+
+# Debug: Print what we found
+$(info Language: $(LANG))
+$(info Source files: $(SRC_FILES))
 
 # ============================================================================
 # Build Configuration
@@ -61,7 +66,7 @@ WARNINGS := -Wall -Wextra -Wpedantic \
             -Wshadow -Wunused -Wformat=2
 
 # Language-specific warnings
-ifeq ($(PROJECT_TYPE),C)
+ifeq ($(LANG),C)
     WARNINGS += -Wstrict-prototypes -Wmissing-prototypes \
                 -Wold-style-definition -Wbad-function-cast
 else
@@ -126,6 +131,7 @@ info:
 	@echo "📊 Project Configuration:"
 	@echo "  Name:        $(PROJECT_NAME)"
 	@echo "  Type:        $(PROJECT_TYPE)"
+	@echo "  Language:    $(LANG)"
 	@echo "  Compiler:    $(CC)"
 	@echo "  Standard:    $(STD)"
 	@echo "  Build Type:  $(BUILD_TYPE)"
@@ -137,6 +143,9 @@ info:
 	@echo "  Source Ext:  $(SRC_EXT)"
 	@echo "  Source Files: $(words $(SRC_FILES))"
 	@echo "  Target:      $(TARGET)"
+	@if [ -n "$(SRC_FILES)" ]; then \
+	    echo "  Source List: $(SRC_FILES)"; \
+	fi
 
 # Help message
 help:
@@ -160,7 +169,7 @@ help:
 $(TARGET): $(OBJ_FILES) | dirs
 	@echo "🔗 Linking $(notdir $@)..."
 	@$(CC) $(OBJ_FILES) $(LDFLAGS) -o $@
-	@echo "✅ Built $(PROJECT_NAME) [$(BUILD_TYPE) | $(PROJECT_TYPE)]"
+	@echo "✅ Built $(PROJECT_NAME) [$(BUILD_TYPE) | $(LANG)]"
 
 # Compilation rule for C files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | dirs
@@ -211,4 +220,3 @@ endif
 # ============================================================================
 print-%:
 	@echo '$*=$($*)'
-

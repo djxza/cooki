@@ -84,12 +84,81 @@ void LibFilegen::generate_makefile(const std::string &project_name) {
   g_file("makefile");
 }
 
-void LibFilegen::generate_test_file(const std::string &src_dir,
-                                    const std::string &project_name,
-                                    bool is_cpp) {
-  std::string ext = is_cpp ? ".cpp" : ".c";
-  std::string test_file = src_dir + "/test" + ext;
+void LibFilegen::generate_test_directory(const std::string &project_name,
+                                         bool is_cpp) {
+  std::string test_dir = "test";
+  std::string test_makefile = test_dir + "/makefile";
+  std::string test_src_file = test_dir + "/test" + (is_cpp ? ".cpp" : ".c");
 
+  // Create test directory
+  fs::create_directories(test_dir);
+
+  // Generate test makefile
+  std::ostringstream makefile_content;
+  makefile_content
+      << "# "
+         "====================================================================="
+         "=======\n"
+      << "# Test Makefile for " << project_name << " library\n"
+      << "# "
+         "====================================================================="
+         "=======\n\n"
+      << "# Project configuration\n"
+      << "PROJECT_NAME := " << project_name << "\n"
+      << "LANG := " << (is_cpp ? "C++" : "C") << "\n\n"
+      << "# Directories\n"
+      << "SRC_DIR := ../src\n"
+      << "INC_DIR := ../include\n"
+      << "LIB_DIR := ../lib\n"
+      << "BIN_DIR := ./bin\n\n"
+      << "# Compiler configuration\n"
+      << "ifeq ($(LANG),C)\n"
+      << "    CC := gcc\n"
+      << "    STD := c17\n"
+      << "else\n"
+      << "    CC := g++\n"
+      << "    STD := c++26\n"
+      << "endif\n\n"
+      << "# Source files\n"
+      << "TEST_SRC := test" << (is_cpp ? ".cpp" : ".c") << "\n"
+      << "TARGET := $(BIN_DIR)/test_$(PROJECT_NAME)\n\n"
+      << "# Compiler flags\n"
+      << "CFLAGS := -std=$(STD) -Wall -Wextra -Wpedantic -g \\\n"
+      << "          -I$(INC_DIR)/$(PROJECT_NAME) -I$(INC_DIR)\n"
+      << "LDFLAGS := -L$(LIB_DIR) -l$(PROJECT_NAME) -Wl,-rpath,$(LIB_DIR)\n\n"
+      << "# Phony targets\n"
+      << ".PHONY: all clean run\n\n"
+      << "# Default target\n"
+      << "all: dirs $(TARGET)\n\n"
+      << "# Create directories\n"
+      << "dirs:\n"
+      << "	@mkdir -p $(BIN_DIR)\n\n"
+      << "# Build test executable\n"
+      << "$(TARGET): $(TEST_SRC) $(LIB_DIR)/lib$(PROJECT_NAME).so | dirs\n"
+      << "	@echo \"🧪 Building test executable...\"\n"
+      << "	@$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@\n"
+      << "	@echo \"✅ Built test executable\"\n\n"
+      << "# Run tests\n"
+      << "run: $(TARGET)\n"
+      << "	@echo \"🚀 Running tests...\"\n"
+      << "	@LD_LIBRARY_PATH=$(LIB_DIR):$$LD_LIBRARY_PATH ./$(TARGET)\n\n"
+      << "# Clean\n"
+      << "clean:\n"
+      << "	@echo \"🧹 Cleaning test artifacts...\"\n"
+      << "	@rm -rf $(BIN_DIR)\n\n"
+      << "# Help\n"
+      << "help:\n"
+      << "	@echo \"Test Makefile for $(PROJECT_NAME) library\"\n"
+      << "	@echo \"Targets:\"\n"
+      << "	@echo \"  all    - Build test executable (default)\"\n"
+      << "	@echo \"  run    - Build and run tests\"\n"
+      << "	@echo \"  clean  - Remove test binaries\"\n"
+      << "	@echo \"  help   - Show this help\"\n";
+
+  writefile(test_makefile, makefile_content.str());
+  std::println("✅ Created test makefile: {}", test_makefile);
+
+  // Generate test source file
   std::ostringstream test_content;
   test_content << "#include \"" << project_name << "/" << project_name
                << (is_cpp ? ".hpp" : ".h") << "\"\n"
@@ -109,6 +178,6 @@ void LibFilegen::generate_test_file(const std::string &src_dir,
                << "    return 0;\n"
                << "}\n";
 
-  writefile(test_file, test_content.str());
-  std::println("✅ Created test file: {}", test_file);
+  writefile(test_src_file, test_content.str());
+  std::println("✅ Created test source file: {}", test_src_file);
 }

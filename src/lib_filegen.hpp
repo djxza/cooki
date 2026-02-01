@@ -14,6 +14,5 @@ public:
   void generate_source_file(const std::string &src_dir,
                             const std::string &project_name, bool is_cpp);
   void generate_makefile(const std::string &project_name);
-  void generate_test_file(const std::string &src_dir,
-                          const std::string &project_name, bool is_cpp);
+  void generate_test_directory(const std::string &project_name, bool is_cpp);
 };

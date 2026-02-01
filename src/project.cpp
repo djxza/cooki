@@ -489,7 +489,8 @@ void Project::make_lib_files() {
     lib_gen->generate_source_file(src_dir, name, lang == ProjectLang::CPP);
 
     if (create_test) {
-      lib_gen->generate_test_file(src_dir, name, lang == ProjectLang::CPP);
+      // hmmmm
+      // lib_gen->generate_test_file(src_dir, name, lang == ProjectLang::CPP);
     }
   }
 }
