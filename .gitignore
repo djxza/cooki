@@ -39,8 +39,5 @@
 *.tds
 *.winfe
 
-# for now this is gray
-# cus the templates are in
-# here but i should prob
-# change that sooner or later
-# bin/
+bin/
+.cache/
